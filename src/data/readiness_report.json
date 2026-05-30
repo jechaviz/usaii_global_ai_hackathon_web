@@ -1,0 +1,19 @@
+{
+	"generated_at":	"2026-05-30T09:08:58.772Z",
+	"package_name":	"usaii_global_ai_hackathon",
+	"product":	"AI Study-to-Work Coach",
+	"version":	"0.3.0",
+	"status":	"pass",
+	"score":	81,
+	"checks":	{
+		"student_partner_track":	"student_partner_track",
+		"team_size":	"2-5 students required",
+		"qualifier_window":	"2026-06-07 to 2026-06-10",
+		"hackathon_window":	"2026-06-14 to 2026-06-21",
+		"final_deadline":	"2026-06-21 23:59 ET",
+		"demo_persona_private_data":	"synthetic only",
+		"final_submit_allowed":	"false"
+	},
+	"blockers":	["eligible 2-5 student team required for real Devpost account", "AI Readiness Qualifier approval code required before final submission", "final build and video must be completed during the official hackathon window"],
+	"artifacts":	["evidence/readiness_report.json", "submission/generated/devpost_payload.redacted.json", "submission/qualifier_response_template.md", "C:\\git\\websites\\usaii_global_ai_hackathon"]
+}

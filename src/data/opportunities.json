@@ -1,0 +1,51 @@
+[{
+		"opportunity":	{
+			"id":	"career_readiness_copilot",
+			"title":	"Career readiness copilot for scholarship and internship prep",
+			"category":	"career",
+			"signals":	["career readiness", "education", "responsible AI"],
+			"required_skills":	{
+				"frontend":	58,
+				"product_thinking":	76,
+				"responsible_ai":	72,
+				"communication":	80,
+				"data_analysis":	62
+			},
+			"portfolio_artifact":	"A verified plan, portfolio rubric, and outreach-safe opportunity shortlist."
+		},
+		"score":	81,
+		"reasons":	["Matches stated interest: career readiness.", "Matches stated interest: education.", "Matches stated interest: responsible AI.", "Near target on frontend: 46/58.", "Near target on product_thinking: 72/76.", "Near target on responsible_ai: 67/72.", "Near target on communication: 78/80.", "Ready on data_analysis: 64/62.", "Can be built with low-cost tools and public/synthetic data."]
+	}, {
+		"opportunity":	{
+			"id":	"learning_analytics_assistant",
+			"title":	"Learning analytics assistant for first-year students",
+			"category":	"education",
+			"signals":	["responsible AI", "education", "data storytelling"],
+			"required_skills":	{
+				"python":	62,
+				"data_analysis":	72,
+				"frontend":	55,
+				"responsible_ai":	75,
+				"experiment_design":	65
+			},
+			"portfolio_artifact":	"A privacy-safe dashboard comparing study habits, confidence, and next actions."
+		},
+		"score":	78,
+		"reasons":	["Matches stated interest: responsible AI.", "Matches stated interest: education.", "Matches stated interest: data storytelling.", "Near target on python: 58/62.", "Near target on data_analysis: 64/72.", "Near target on frontend: 46/55.", "Near target on responsible_ai: 67/75.", "Near target on experiment_design: 52/65.", "Can be built with low-cost tools and public/synthetic data."]
+	}, {
+		"opportunity":	{
+			"id":	"community_data_story",
+			"title":	"Community data story for local opportunity gaps",
+			"category":	"social impact",
+			"signals":	["data storytelling", "career readiness"],
+			"required_skills":	{
+				"data_analysis":	70,
+				"communication":	82,
+				"product_thinking":	68,
+				"experiment_design":	60
+			},
+			"portfolio_artifact":	"A public story that explains one access gap and a student-led intervention."
+		},
+		"score":	70,
+		"reasons":	["Matches stated interest: data storytelling.", "Matches stated interest: career readiness.", "Near target on data_analysis: 64/70.", "Near target on communication: 78/82.", "Ready on product_thinking: 72/68.", "Near target on experiment_design: 52/60.", "Can be built with low-cost tools and public/synthetic data."]
+	}]

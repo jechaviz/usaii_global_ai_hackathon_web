@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "serve": "node serve.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.0"
+  }
+}

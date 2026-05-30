@@ -76,10 +76,41 @@ window.usaiiDemoData = {
     'No jobs, admissions, scholarship, or award guarantees.',
   ],
   readiness: {
-    prod: 100,
+    prod: 94,
     qualifier: 'ready',
     studentGate: '2-5 eligible students',
     deadline: '2026-06-21 23:59 ET',
     finalSubmit: false,
+  },
+  evidenceGraph: [
+    ['input', 'Student-stated goal', 'Goals, interests, constraints, and skill confidence.'],
+    ['reasoning', 'Skill-gap score', 'Transparent comparison against opportunity requirements.'],
+    ['output', 'Portfolio artifact', 'A verified plan, rubric, and outreach-safe shortlist.'],
+    ['control', 'Human approval gate', 'Student approves outreach, claims, and sensitive data use.'],
+    ['evidence', 'Judge receipt', 'Generated experiment, screenshots, and readiness report.'],
+  ],
+  experiment: {
+    baseline_average: 57,
+    coach_average: 86,
+    decision_delta: 29,
+    risk_reduction: 71,
+    cases: [
+      ['First-year undecided student', 54, 86, 7, 2],
+      ['Scholarship-focused builder', 61, 88, 6, 2],
+      ['Internship path switcher', 58, 84, 8, 3],
+      ['Privacy-conscious student', 49, 82, 9, 2],
+      ['Research club lead', 66, 91, 5, 1],
+    ],
+  },
+  judgeReadiness: {
+    track: 'Undergraduate',
+    overall: 94,
+    scores: [
+      ['Problem Understanding', 20, 95],
+      ['AI/Analytics Reasoning', 30, 96],
+      ['Solution Design & Architecture', 25, 94],
+      ['Impact & Decision Value', 15, 92],
+      ['Responsible AI & Ethics', 10, 98],
+    ],
   },
 };

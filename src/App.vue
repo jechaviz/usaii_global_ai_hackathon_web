@@ -29,6 +29,11 @@
       <RecommendationPanel :recommendation="recommended" :gaps="gaps" compact />
     </section>
 
+    <section v-else-if="activeTab === 'judge'" class="workspace-grid judge-layout">
+      <JudgePanel :experiment="experiment" :readiness="judgeReadiness" />
+      <EvidenceGraphPanel :nodes="evidenceGraph" />
+    </section>
+
     <section v-else class="workspace-grid submission-layout">
       <SubmissionPanel :packet="packet" :readiness="demo.readiness" />
       <GuardrailPanel :items="demo.guardrails" />
@@ -44,6 +49,8 @@ import RecommendationPanel from './components/RecommendationPanel.vue';
 import PlanTimeline from './components/PlanTimeline.vue';
 import GuardrailPanel from './components/GuardrailPanel.vue';
 import SubmissionPanel from './components/SubmissionPanel.vue';
+import JudgePanel from './components/JudgePanel.vue';
+import EvidenceGraphPanel from './components/EvidenceGraphPanel.vue';
 
 export default {
   components: {
@@ -54,16 +61,22 @@ export default {
     PlanTimeline,
     GuardrailPanel,
     SubmissionPanel,
+    JudgePanel,
+    EvidenceGraphPanel,
   },
   data() {
     const demo = window.usaiiDemoData;
     return {
       demo,
       profile: JSON.parse(JSON.stringify(demo.profile)),
+      planData: null,
+      experiment: demo.experiment,
+      judgeReadiness: demo.judgeReadiness,
       activeTab: 'coach',
       tabs: [
         { id: 'coach', label: 'Coach', icon: 'sparkles' },
         { id: 'plan', label: 'Plan', icon: 'calendar-days' },
+        { id: 'judge', label: 'Judge', icon: 'bar-chart-3' },
         { id: 'submission', label: 'Packet', icon: 'send' },
       ],
     };
@@ -98,10 +111,19 @@ export default {
     metrics() {
       return [
         { label: 'Fit score', value: `${this.recommended.score}%`, tone: 'green' },
-        { label: 'Skill gaps', value: this.gaps.length, tone: 'amber' },
-        { label: 'Qualifier', value: this.demo.readiness.qualifier, tone: 'blue' },
+        { label: 'Judge ready', value: `${this.judgeReadiness.overall}%`, tone: 'blue' },
+        { label: 'Decision delta', value: `+${this.experiment.decision_delta}`, tone: 'green' },
+        { label: 'Risk cut', value: `${this.experiment.risk_reduction}%`, tone: 'amber' },
         { label: 'Final submit', value: this.demo.readiness.finalSubmit ? 'open' : 'gated', tone: 'rose' },
       ];
+    },
+    evidenceGraph() {
+      return this.planData?.evidence_graph || this.demo.evidenceGraph.map(([kind, label, evidence]) => ({
+        kind,
+        label,
+        evidence,
+        status: kind === 'control' ? 'required' : 'ready',
+      }));
     },
     packet() {
       return {
@@ -124,19 +146,28 @@ export default {
   },
   methods: {
     async loadGeneratedData() {
-      const [planResponse, readinessResponse] = await Promise.allSettled([
+      const [planResponse, readinessResponse, experimentResponse, judgeResponse] = await Promise.allSettled([
         fetch('./src/data/coach_plan.json'),
         fetch('./src/data/readiness_report.json'),
+        fetch('./src/data/competitive_experiment.json'),
+        fetch('./src/data/judge_readiness.json'),
       ]);
       if (planResponse.status === 'fulfilled' && planResponse.value.ok) {
         const plan = await planResponse.value.json();
         if (plan?.profile?.skills) {
+          this.planData = plan;
           this.profile = plan.profile;
         }
       }
       if (readinessResponse.status === 'fulfilled' && readinessResponse.value.ok) {
         const report = await readinessResponse.value.json();
         this.demo.readiness.prod = report.score || this.demo.readiness.prod;
+      }
+      if (experimentResponse.status === 'fulfilled' && experimentResponse.value.ok) {
+        this.experiment = await experimentResponse.value.json();
+      }
+      if (judgeResponse.status === 'fulfilled' && judgeResponse.value.ok) {
+        this.judgeReadiness = await judgeResponse.value.json();
       }
     },
     scoreOpportunity(opportunity) {

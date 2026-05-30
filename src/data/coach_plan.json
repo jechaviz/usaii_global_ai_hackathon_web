@@ -77,5 +77,36 @@
 			"human_gate":	"Student approves each outreach action manually."
 		}],
 	"guardrails":	["Use synthetic demo personas unless a real student explicitly opts in.", "Never infer protected traits or rank students by worth; score only stated goals and skills.", "Show why every recommendation was made, including weak evidence and missing inputs.", "Keep career actions human-approved before outreach, applications, or public portfolio changes.", "Warn that the system supports decisions and does not guarantee jobs, admissions, or awards."],
-	"demo_claims":	["Turns vague student goals into an explainable work plan.", "Produces portfolio evidence instead of only advice.", "Keeps sensitive student identity and school proof out of public artifacts.", "Supports responsible AI review through transparent scores, gaps, and warnings."]
+	"evidence_graph":	[{
+			"id":	"input_goal",
+			"label":	"Student-stated goal",
+			"kind":	"input",
+			"status":	"synthetic_demo",
+			"evidence":	"Profile goals, interests, constraints and skill ratings."
+		}, {
+			"id":	"skill_gap_score",
+			"label":	"Skill-gap score",
+			"kind":	"reasoning",
+			"status":	"computed",
+			"evidence":	"Required skills compared against current confidence."
+		}, {
+			"id":	"portfolio_artifact",
+			"label":	"Portfolio artifact",
+			"kind":	"output",
+			"status":	"planned",
+			"evidence":	"A verified plan, portfolio rubric, and outreach-safe opportunity shortlist."
+		}, {
+			"id":	"human_gate",
+			"label":	"Human approval gate",
+			"kind":	"control",
+			"status":	"required",
+			"evidence":	"Student approves outreach, public claims and sensitive data use."
+		}, {
+			"id":	"judge_receipt",
+			"label":	"Judge evidence receipt",
+			"kind":	"evidence",
+			"status":	"ready",
+			"evidence":	"Generated experiment, readiness report and demo screenshots."
+		}],
+	"demo_claims":	["Turns vague student goals into an explainable decision ledger.", "Produces portfolio evidence instead of only advice.", "Keeps sensitive student identity and school proof out of public artifacts.", "Supports responsible AI review through transparent scores, gaps, counterfactuals, and warnings."]
 }

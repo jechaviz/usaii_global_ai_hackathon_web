@@ -1,0 +1,56 @@
+{
+	"track":	"Undergraduate",
+	"overall":	94,
+	"scores":	[{
+			"dimension":	{
+				"id":	"problem_understanding",
+				"label":	"Problem Understanding",
+				"weight":	20,
+				"target":	"Clear decision context and constraints.",
+				"evidence":	"Student persona, constraints, goals and non-goals are visible."
+			},
+			"score":	95,
+			"rationale":	"The demo names the user, decision, constraints and missing evidence."
+		}, {
+			"dimension":	{
+				"id":	"ai_reasoning",
+				"label":	"AI/Analytics Reasoning",
+				"weight":	30,
+				"target":	"Justified approach with clear reasoning, not buzzwords.",
+				"evidence":	"Transparent scoring, skill gaps, counterfactual slider and baseline comparison."
+			},
+			"score":	96,
+			"rationale":	"The product exposes scoring, deltas and why each recommendation changes."
+		}, {
+			"dimension":	{
+				"id":	"architecture",
+				"label":	"Solution Design & Architecture",
+				"weight":	25,
+				"target":	"Coherent data-to-AI-to-output pipeline.",
+				"evidence":	"Evidence graph, V core, Vue demo, WAIBAv submission gates."
+			},
+			"score":	94,
+			"rationale":	"Component boundaries are clear across V core, Vue demo, evidence and automation."
+		}, {
+			"dimension":	{
+				"id":	"impact",
+				"label":	"Impact & Decision Value",
+				"weight":	15,
+				"target":	"Shows how insights change outcomes.",
+				"evidence":	"Four-week plan, portfolio artifact and opportunity shortlist."
+			},
+			"score":	92,
+			"rationale":	"The output changes a student decision and creates concrete proof."
+		}, {
+			"dimension":	{
+				"id":	"responsible_ai",
+				"label":	"Responsible AI & Ethics",
+				"weight":	10,
+				"target":	"Addresses bias, hallucinations, privacy and failure modes.",
+				"evidence":	"Guardrails, human approval, synthetic data and no-guarantee language."
+			},
+			"score":	98,
+			"rationale":	"Privacy, bias, over-reliance, hallucination and human approval are explicit."
+		}],
+	"killer_demo":	["Move a skill slider and show the recommendation/risk explanation changing live.", "Open the evidence graph: input, reasoning, output, human gate and receipt.", "Show baseline-vs-coach: the coach improves decision clarity while reducing risky claims.", "End on Devpost packet readiness with final submit still gated to the student lead."]
+}

@@ -14,6 +14,10 @@ test('coach workspace renders and recalculates', async ({ page }) => {
 
   await page.getByRole('button', { name: /Plan/i }).click();
   await expect(page.getByText('Four-Week Plan')).toBeVisible();
+
+  await page.getByRole('button', { name: 'Judge', exact: true }).click();
+  await expect(page.getByText('Undergraduate rubric defense')).toBeVisible();
+  await expect(page.locator('.judge-panel').getByText('Decision delta')).toBeVisible();
   await page.screenshot({ path: 'out/usaii-demo-desktop.png', fullPage: true });
 
   await page.setViewportSize({ width: 390, height: 844 });

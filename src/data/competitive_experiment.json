@@ -1,7 +1,7 @@
 {
-	"generated_at":	"2026-05-30T10:03:13.434Z",
+	"generated_at":	"2026-05-30T11:28:39.779Z",
 	"product":	"AI Study-to-Work Coach",
-	"version":	"1.1.0",
+	"version":	"1.2.1",
 	"cases":	[{
 			"id":	"first_year_undecided",
 			"student":	"First-year undecided student",
